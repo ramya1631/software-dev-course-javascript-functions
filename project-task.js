@@ -78,17 +78,17 @@ function greetUser(name) {
   console.log("Welcome, " + name + "!");
 }
 
-// Function to calculate the sum of two numbers
+//  Function to calculate the sum of two numbers
 function calculateSum(a, b) {
   return a + b;
 }
 
-//  Function to calculate the product of two numbers
+// Function to calculate the product of two numbers
 function calculateProduct(a, b) {
   return a * b;
 }
 
-//  Function to print all names from an array
+// Function to print all names from an array
 function printNames(nameList) {
   console.log("Names in the list:");
   for (let i = 0; i < nameList.length; i++) {
