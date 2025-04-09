@@ -37,6 +37,20 @@ reusable functions that solve specific tasks. This activity encourages:
 // 4. Return the result.
 
 
+const readline = require('readline-sync');
+
+function generateBadge(name, role) {
+    if (!name || !role) return "Invalid input";
+    let newRole = role.charAt(0).toUpperCase() + role.slice(1).toLowerCase();
+    return `Name: ${name}, Role: ${newRole}`;
+}
+
+console.log(generateBadge(readline.question("What is your name? "), readline.question("What is your role? ")));
+
+
+
+
+
 // ============================================
 // 🧩 Task 2: Calculate Event Cost
 // ============================================
@@ -51,6 +65,15 @@ reusable functions that solve specific tasks. This activity encourages:
 // 3. If so, apply a 10% discount.
 // 4. Return the final total.
 
+function eventCost(attendees, cost) {
+    let totalCost = attendees * cost;
+	if (attendees > 100) {
+		totalCost *= 0.9;
+	}
+	return totalCost;
+}
+console.log(eventCost(120, 25)); // Output: 2700
+console.log(eventCost(100, 25)); // Output: 2500
 
 // ============================================
 // 🧩 Task 3: Validate Email
@@ -63,6 +86,30 @@ reusable functions that solve specific tasks. This activity encourages:
 // Steps:
 // 1. Check if the string includes both "@" and ".".
 // 2. Return true or false accordingly.
+
+
+
+function validateEmail(email) {
+    if (!email) {
+        email = readline.question("What is your email? ");
+    }
+
+    while (!(email.includes("@") && email.includes("."))) {
+        email = readline.question("Please enter a valid email address: ");
+    }
+
+    return email; //  Return the valid email
+}
+
+//  Call the function and store the returned email
+let userEmail = validateEmail();
+
+console.log("Thanks! Your email is: " + userEmail);
+
+
+
+
+
 
 
 // ============================================
@@ -84,8 +131,16 @@ reusable functions that solve specific tasks. This activity encourages:
 // - Each member writes test cases for each function
 // - Use console.log() to test different inputs and edge cases
 
+console.log(generateBadge(readline.question("What is your name? "), readline.question("What is your role? "))); // Happy Path
+console.log(generateBadge(readline.question("What is your name? "), null)); // supplying null input
+console.log(generateBadge(readline.question("What is your name? "), " ")); // supplying empty space
+console.log(generateBadge(readline.question("What is your name? "), "%")); // supplying special char
+
+
 // 🎤 Presentation Phase:
 // - Share your functions with the class
 // - Explain how your team approached the design and testing process
 
 // ✅ Bonus: Can you extend any of the functions to be more flexible or reusable?
+
+
